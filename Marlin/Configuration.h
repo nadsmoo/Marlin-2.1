@@ -908,7 +908,7 @@
   // Delta calibration menu
   // Add three-point calibration to the MarlinUI menu.
   // See http://minow.blogspot.com/index.html#4918805519571907051
-  //#define DELTA_CALIBRATION_MENU
+  #define DELTA_CALIBRATION_MENU
 
   // G33 Delta Auto-Calibration. Enable EEPROM_SETTINGS to store results.
   //#define DELTA_AUTO_CALIBRATION
@@ -930,15 +930,21 @@
   #define DELTA_MAX_RADIUS       127.5    // (mm)
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 319.5        // (mm)
+  #define DELTA_DIAGONAL_ROD 333        // (mm)
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT 287.4             // (mm) Get this value from G33 auto calibrate 
+  #define DELTA_HEIGHT 286.5             // (mm) Get this value from G33 auto calibrate 
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
 
-  // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 174.1              // (mm) Get this value from G33 auto calibrate
+  #define DELTA_SMOOTH_ROD_OFFSET 214.15 // mm   // Horizontal offset from middle of printer to smooth rod center.
+  #define DELTA_EFFECTOR_OFFSET 19.9 // mm  // Horizontal offset of the universal joints on the end effector.
+  #define DELTA_CARRIAGE_OFFSET 19.5 // mm  // Horizontal offset of the universal joints on the carriages.
+ 
+ #define DELTA_CALIBRATION_MENU
+ 
+   // Horizontal distance bridged by diagonal push rods when effector is centered.
+ #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-(DELTA_EFFECTOR_OFFSET)-(DELTA_CARRIAGE_OFFSET))
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
